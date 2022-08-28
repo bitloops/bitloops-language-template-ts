@@ -23,7 +23,7 @@ import fastifyCors from '@fastify/cors';
 import { router } from './api';
 
 const corsOptions = {
-  // origin: isProduction ? 'https://dddforum.com' : '*',
+  // origin: isProduction ? 'https://yourwhitelisteddomain.com' : '*',
   origin: '*',
 };
 
