@@ -17,35 +17,10 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import Fastify from 'fastify';
-import formBodyPlugin from '@fastify/formbody';
-import fastifyCors from '@fastify/cors';
-import { router } from './api';
-
-// TODO manage cors options
-const corsOptions = {
-  // origin: isProduction ? 'https://yourwhitelisteddomain.com' : '*',
-  origin: '*',
+import { FastifyInstance } from 'fastify';
+// @TEMPLATE - Add imports here
+const router = async (fastify: FastifyInstance, _opts: any) => {
+  // @TEMPLATE - Add routes here
 };
 
-const fastify = Fastify({
-  logger: true,
-});
-fastify.register(fastifyCors, corsOptions);
-fastify.register(formBodyPlugin);
-fastify.register(router, {
-  prefix: process.env.API_PREFIX,
-});
-
-// @TEMPLATE `const port = ${PORT};`
-const port = process.env.FASTIFY_PORT || 5001;
-
-const start = async () => {
-  try {
-    await fastify.listen({ port: +port });
-  } catch (err) {
-    fastify.log.error(err);
-    process.exit(1);
-  }
-};
-start();
+export { router };
