@@ -17,11 +17,13 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import { FastifyInstance } from 'fastify';
-// @TEMPLATE import { ${camelCase(BOUNDED_CONTEXT)}Router } from '../../../../BoundedContexts/${kebab(BOUNDED_CONTEXT)}/infra/rest/fastify/routes';
+import { BaseFastifyController } from '../models/BaseFastifyController';
+// @TEMPLATE `import { ${camelCase(USE_CASE_NAME)}Controller } from '../../../../../../bounded-contexts/${kebab(BOUNDED_CONTEXT)}/${kebab(MODULE)}/use-cases/${kebab(USE_CASE_NAME)/index';`
 
-const router = async (fastify: FastifyInstance, _opts: any) => {
-  // @TEMPLATE fastify.register(${camelCase(BOUNDED_CONTEXT)}Router, { prefix: '/${kebab(BOUNDED_CONTEXT)}' });
-};
+interface IRESTFastifyRoute {
+  method: string;
+  url: string;
+  controller: BaseFastifyController;
+}
 
-export { router };
+export const routes: IRESTFastifyRoute[] = [];
