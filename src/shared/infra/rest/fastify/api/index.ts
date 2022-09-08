@@ -19,8 +19,8 @@
  */
 import { FastifyInstance } from 'fastify';
 // @TEMPLATE - Add imports here
-const router = async (fastify: FastifyInstance, _opts: any) => {
+const routers = async (fastify: FastifyInstance, _opts: any) => {
   // @TEMPLATE - Add routes here
 };
 
-export { router };
+export { routers };

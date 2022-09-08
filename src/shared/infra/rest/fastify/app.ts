@@ -20,7 +20,7 @@
 import Fastify from 'fastify';
 import formBodyPlugin from '@fastify/formbody';
 import fastifyCors from '@fastify/cors';
-import { router } from './api';
+import { routers } from './api';
 
 // TODO manage cors options
 const corsOptions = {
@@ -33,7 +33,7 @@ const fastify = Fastify({
 });
 fastify.register(fastifyCors, corsOptions);
 fastify.register(formBodyPlugin);
-fastify.register(router, {
+fastify.register(routers, {
   prefix: process.env.API_PREFIX,
 });
 
