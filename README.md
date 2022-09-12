@@ -2,4 +2,4 @@
 
 Bitloops Language Boilerplate code for TypeScript
 
-v0.0.4
+v0.0.5
