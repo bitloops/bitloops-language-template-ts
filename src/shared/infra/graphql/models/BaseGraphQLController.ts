@@ -33,8 +33,8 @@ export abstract class BaseGraphQLController<TRequest, TResponseData>
         return result;
       }
     } catch (err) {
-    //   console.log(`[BaseController]: Uncaught controller error`);
-    //   console.log(err);
+      //   console.log(`[BaseController]: Uncaught controller error`);
+      //   console.log(err);
       this.fail('An unexpected error occurred');
     }
     throw result;
