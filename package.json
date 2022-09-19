@@ -38,7 +38,6 @@
     "@fastify/cors": "^7",
     "@fastify/formbody": "^6.0.0",
     "@types/bcrypt-nodejs": "0.0.31",
-    "bcrypt-nodejs": "^0.0.3",
     "compression": "^1.7.4",
     "dompurify": "^2.3.8",
     "dotenv": "^16.0.1",
@@ -46,7 +45,6 @@
     "helmet": "^5.1.0",
     "jsdom": "^20.0.0",
     "morgan": "^1.10.0",
-    "randomatic": "^3.1.1",
     "uuid": "^8.3.2",
     "validator": "^13.7.0"
   },
