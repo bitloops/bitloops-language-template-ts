@@ -110,7 +110,7 @@ export const right = <L, A>(a?: A): Either<L, A> => {
   return new Right<L, A>(a);
 };
 
-export type XOR<L, A> = Oops<L, A> | Yay<L, A>;
+export type XOR<A, L> = Oops<L, A> | Yay<L, A>;
 
 export class Oops<L, A> {
   readonly value: L;
@@ -144,10 +144,10 @@ export class Yay<L, A> {
   }
 }
 
-export const oops = <L, A>(l: L): XOR<L, A> => {
+export const oops = <A, L>(l: L): XOR<A, L> => {
   return new Oops(l);
 };
 
-export const yay = <L, A>(a: A): XOR<L, A> => {
+export const yay = <A, L>(a: A): XOR<A, L> => {
   return new Yay<L, A>(a);
 };
