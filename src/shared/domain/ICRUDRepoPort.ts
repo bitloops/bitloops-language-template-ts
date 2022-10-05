@@ -15,9 +15,9 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 export interface CRUDRepoPort<Aggregate> {
-  getAll(): Aggregate[];
-  getById(aggregateRootId: string): Aggregate;
-  save(aggregateRootId: Aggregate): void;
-  update(aggregate: Aggregate): void;
-  delete(aggregateRootId: string): void;
+  getAll(): Promise<Aggregate[]>;
+  getById(aggregateRootId: string): Promise<Aggregate>;
+  save(aggregate: Aggregate): Promise<void>;
+  update(aggregate: Aggregate): Promise<void>;
+  delete(aggregateRootId: string): Promise<void>;
 }
