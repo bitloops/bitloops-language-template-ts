@@ -131,8 +131,8 @@ export class Oops<L, A> {
 export class Yay<L, A> {
   readonly value: A;
 
-  constructor(value: A) {
-    this.value = value;
+  constructor(value?: A) {
+    this.value = value || (undefined as unknown as A);
   }
 
   isOops(): this is Oops<L, A> {
@@ -148,6 +148,6 @@ export const oops = <A, L>(l: L): XOR<A, L> => {
   return new Oops(l);
 };
 
-export const yay = <A, L>(a: A): XOR<A, L> => {
+export const yay = <A, L>(a?: A): XOR<A, L> => {
   return new Yay<L, A>(a);
 };
