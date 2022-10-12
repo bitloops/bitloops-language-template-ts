@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/bitloops/bitloops-ermis-gateway#readme",
   "dependencies": {
-    "@bitloops/bl-boilerplate-core": "^0.0.1",
+    "@bitloops/bl-boilerplate-core": "^0.0.2",
     "@fastify/cors": "^7",
     "@fastify/formbody": "^6.0.0",
     "@types/bcrypt-nodejs": "0.0.31",

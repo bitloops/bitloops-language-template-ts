@@ -1,7 +1,7 @@
 // import { ValueObject } from '../../../../shared/domain/ValueObject';
 // import { Result } from '../../../../shared/core/Result';
 // import { Guard } from '../../../../shared/core/Guard';
-import { Domain, Either } from '@bitloops/bl-boilerplate-core';
+import { Domain, Either, ok, fail } from '@bitloops/bl-boilerplate-core';
 import { DomainErrors } from './DomainErrors';
 
 interface TitleProps {
@@ -19,10 +19,12 @@ export class Title extends Domain.ValueObject<TitleProps> {
 
   public static create(props: TitleProps): Either<Title, DomainErrors.InvalidTitleError> {
     if (props.title.length < 3 || props.title.length > 150) {
-      return DomainErrors.InvalidTitleError();
+      return fail(new DomainErrors.InvalidTitleError());
     } else
-      return new Title({
-        ...props,
-      });
+      return ok(
+        new Title({
+          ...props,
+        }),
+      );
   }
 }

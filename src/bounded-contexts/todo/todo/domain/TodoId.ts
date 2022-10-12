@@ -1,4 +1,4 @@
-import { Domain, Either } from '@bitloops/bl-boilerplate-core';
+import { Domain, Either, ok } from '@bitloops/bl-boilerplate-core';
 
 export class TodoId extends Domain.Entity<any> {
   get id(): Domain.UniqueEntityID {
@@ -10,6 +10,6 @@ export class TodoId extends Domain.Entity<any> {
   }
 
   public static create(id?: Domain.UniqueEntityID): Either<TodoId, never> {
-    return Result.ok<TodoId>(new TodoId(id));
+    return ok(new TodoId(id));
   }
 }

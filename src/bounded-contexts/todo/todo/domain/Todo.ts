@@ -1,7 +1,7 @@
 // import { AggregateRoot } from '../../../../shared/domain/AggregateRoot';
 // import { UniqueEntityID } from '../../../../shared/domain/UniqueEntityID';
 // import { Result, Either, left, right } from '../../../../shared/core/Result';
-import { Domain, Either } from '@bitloops/bl-boilerplate-core';
+import { Domain, Either, ok, fail } from '@bitloops/bl-boilerplate-core';
 import { Title } from './Title';
 import { DomainErrors } from './DomainErrors';
 import { TodoId } from './TodoId';
@@ -25,27 +25,16 @@ export class Todo extends Domain.Aggregate<TodoProps> {
   public updateTitle(title: string): UpdateTitleResult {
     const titleVO = Title.create({ title: title });
     if (titleVO.isFail()) {
-      return left(new DomainErrors.InvalidTitleError());
+      return fail(new DomainErrors.InvalidTitleError());
     }
 
     this.props.title = titleVO.value;
-    return right();
+    return ok();
   }
 
-  public static create(title: string, id?: Domain.UniqueEntityID): Either<Todo, never> {
-    const titleVO = Title.create({ title: title });
-    console.log('titleVO', titleVO);
-    if (titleVO.isFail()) {
-      return Result.fail<Todo>(new DomainErrors.InvalidTitleError().message);
-    }
+  public static create(props: TodoProps): Either<Todo, never> {
+    const todo = new Todo(props);
 
-    const defaultValues: TodoProps = {
-      todoId: TodoId.create().getValue(),
-      title: titleVO.value,
-    };
-
-    const todo = new Todo(defaultValues, id);
-
-    return Result.ok<Todo>(todo);
+    return ok(todo);
   }
 }

@@ -373,10 +373,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bitloops/bl-boilerplate-core@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-core/-/bl-boilerplate-core-0.0.1.tgz#8a52eb7e0b32b1789df7d2f74b0969ee6ade9390"
-  integrity sha512-85dKws2TVvdE5ielXnktozYncZiqeq+Xw3cg550aiKnw+Tb+Nlz/8S/l6wTgnrZ6mucK+NeillHMhjOofv1Aow==
+"@bitloops/bl-boilerplate-core@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-core/-/bl-boilerplate-core-0.0.2.tgz#b842b0cb704f5eb623a58c3fc4e50abbd17c1d89"
+  integrity sha512-VDQ5sb3ym2SQX8bVlU+fKiW+qW4/Ma0AVLzWhDCQt31zp4B0F3zkUADZl4kxw9bVzePAK78UK49XBhVFICW1gA==
   dependencies:
     uuid "^9.0.0"
 
