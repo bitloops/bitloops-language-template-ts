@@ -17,20 +17,20 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import Fastify from 'fastify';
-import formBodyPlugin from '@fastify/formbody';
-import fastifyCors from '@fastify/cors';
+import { Fastify } from '@bitloops/bl-boilerplate-infra-rest-fastify';
+// import formBodyPlugin from '@fastify/formbody';
+// import fastifyCors from '@fastify/cors';
 import { routers } from './api';
 
 const corsOptions = {
   origin: '*',
 };
 
-const fastify = Fastify({
+const fastify = Fastify.Server({
   logger: true,
 });
-fastify.register(fastifyCors, corsOptions);
-fastify.register(formBodyPlugin);
+fastify.register(Fastify.cors, corsOptions);
+fastify.register(Fastify.formBody);
 fastify.register(routers, {
   prefix: '/api',
 });

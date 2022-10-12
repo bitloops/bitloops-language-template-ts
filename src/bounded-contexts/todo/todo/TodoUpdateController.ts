@@ -1,11 +1,10 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
-import { BaseFastifyController } from '../../../shared/infra/rest/fastify/models/BaseFastifyController';
+import { Fastify } from '@bitloops/bl-boilerplate-infra-rest-fastify';
 
-export class TodoUpdateController extends BaseFastifyController {
+export class TodoUpdateController extends Fastify.BaseController {
   constructor() {
     super();
   }
-  async executeImpl(request: FastifyRequest, response: FastifyReply): Promise<void> {
+  async executeImpl(request: Fastify.Request, response: Fastify.Reply): Promise<void> {
     this.ok(response, 'Hello World!');
   }
 }

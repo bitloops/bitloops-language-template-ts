@@ -18,7 +18,7 @@
  *  For further information you can contact legal(at)bitloops.com.
  */
 import * as express from 'express';
-import { IBaseController } from '../../IBaseController';
+import { IBaseController } from '../IBaseController';
 
 export abstract class BaseController implements IBaseController<express.Request, express.Response> {
   protected abstract executeImpl(req: express.Request, res: express.Response): Promise<void | any>;

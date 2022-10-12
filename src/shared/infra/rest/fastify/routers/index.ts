@@ -17,11 +17,11 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify';
+import { Fastify } from '@bitloops/bl-boilerplate-infra-rest-fastify';
 import { todoCreateController } from '../../../../../bounded-contexts/todo/todo/DI';
 
-const todoRESTRouter = async (fastify: FastifyInstance) => {
-  fastify.post('/', {}, async (request: FastifyRequest, reply: FastifyReply) => {
+const todoRESTRouter = async (fastify: Fastify.Instance) => {
+  fastify.post('/', {}, async (request: Fastify.Request, reply: Fastify.Reply) => {
     return todoCreateController.execute(request, reply);
   });
 };

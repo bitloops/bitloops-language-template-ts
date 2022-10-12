@@ -17,10 +17,10 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import { FastifyInstance } from 'fastify';
+import { Fastify } from '@bitloops/bl-boilerplate-infra-rest-fastify';
 import { todoRESTRouter } from '../routers/index';
 
-const routers = async (serverInstance: FastifyInstance, _opts: any) => {
+const routers = async (serverInstance: Fastify.Instance, _opts: any) => {
   serverInstance.register(todoRESTRouter, { prefix: '/todo' });
 };
 
