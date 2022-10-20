@@ -1049,10 +1049,10 @@
   dependencies:
     uuid "^9.0.0"
 
-"@bitloops/bl-boilerplate-infra-graphql@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-infra-graphql/-/bl-boilerplate-infra-graphql-0.0.2.tgz#923409a056400f05736f241e4603d0ae02697133"
-  integrity sha512-2ECGw30r5W08Yl5DIKz1Y+xmz7h3qzvJaqG2iJ9LL6Oq8Smq4QcihJsYczNPIufxNX6W1h1RtuJY0NUX332EBQ==
+"@bitloops/bl-boilerplate-infra-graphql@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-infra-graphql/-/bl-boilerplate-infra-graphql-0.0.4.tgz#5244733e2a1a06c8e2c0cd5a1ee0b1f15c45c9f9"
+  integrity sha512-DVDTm8/7S4ppCPc/YVu+t+dc8gUppQPZ6PPvFKuEOLginGBZaHAq90JdrdYgR482STH069o/6frXofNiE/vEHw==
   dependencies:
     apollo-server "^3.10.3"
     graphql "^16.6.0"

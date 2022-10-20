@@ -15,7 +15,7 @@ export class TodoGetAllGQLController extends GraphQL.BaseController<
     super();
     this.useCase = useCase;
   }
-  async executeImpl(request: GraphQL.TRequest<void>): Promise<TodoGetAllResponseDTO | any> {
+  async executeImpl(request: GraphQL.TRequest<void>) {
     const result = await this.useCase.execute();
     if (result.isFail()) {
       return this.fail(result.value);
