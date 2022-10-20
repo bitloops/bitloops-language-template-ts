@@ -29,6 +29,7 @@ import { TodoUpdateController } from './driving-adapters/TodoUpdateController';
 import { TodoDeleteController } from './driving-adapters/TodoDeleteController';
 import { TodoGetAllController } from './driving-adapters/TodoGetAllController';
 import { TodoGetByIdController } from './driving-adapters/TodoGetByIdController';
+import { TodoGetAllGQLController } from './driving-adapters/TodoGetAllGQLController';
 import client from '../../../shared/infra/db/mongo';
 
 const todoCreateController = new TodoCreateController(
@@ -40,6 +41,9 @@ const todoGetAllController = new TodoGetAllController(
   new TodoGetAllUseCase(new MongoTodoReadRepo(client)),
 );
 const todoGetByIdController = new TodoGetByIdController();
+const todoGetAllGQLController = new TodoGetAllGQLController(
+  new TodoGetAllUseCase(new MongoTodoReadRepo(client)),
+);
 
 export {
   todoCreateController,
@@ -47,4 +51,5 @@ export {
   todoDeleteController,
   todoGetAllController,
   todoGetByIdController,
+  todoGetAllGQLController,
 };
