@@ -17,19 +17,23 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-import { MockTodoRepo } from './repos/concretions/MockTodoRepo';
+// import { MockTodoRepo } from './repos/concretions/MockTodoRepo';
+import { MongoTodoRepo } from './repos/concretions/MongoTodoRepo';
 
 import { TodoCreateUseCase } from './application/TodoCreateUseCase';
 
 export { TodoCreateUseCase };
 
-import { TodoCreateController } from './TodoCreateController';
-import { TodoUpdateController } from './TodoUpdateController';
-import { TodoDeleteController } from './TodoDeleteController';
-import { TodoGetAllController } from './TodoGetAllController';
-import { TodoGetByIdController } from './TodoGetByIdController';
+import { TodoCreateController } from './driving-adapters/TodoCreateController';
+import { TodoUpdateController } from './driving-adapters/TodoUpdateController';
+import { TodoDeleteController } from './driving-adapters/TodoDeleteController';
+import { TodoGetAllController } from './driving-adapters/TodoGetAllController';
+import { TodoGetByIdController } from './driving-adapters/TodoGetByIdController';
+import client from '../../../shared/infra/db/mongo';
 
-const todoCreateController = new TodoCreateController(new TodoCreateUseCase(new MockTodoRepo()));
+const todoCreateController = new TodoCreateController(
+  new TodoCreateUseCase(new MongoTodoRepo(client)),
+);
 const todoUpdateController = new TodoUpdateController();
 const todoDeleteController = new TodoDeleteController();
 const todoGetAllController = new TodoGetAllController();

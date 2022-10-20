@@ -297,6 +297,13 @@
   dependencies:
     uuid "^9.0.0"
 
+"@bitloops/bl-boilerplate-core@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-core/-/bl-boilerplate-core-0.0.5.tgz#d8b7ec8e0877712d52a3a265fdd7582de471e300"
+  integrity sha512-liZabkJQ4g4fkiHdX/WFNu8JikuOR6irCOHigiOpQ+bIRsyQX9/IKCdiJHM+qgovjRQIsfsV657kVjEeodthug==
+  dependencies:
+    uuid "^9.0.0"
+
 "@bitloops/bl-boilerplate-infra-mongo@^0.0.2":
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/@bitloops/bl-boilerplate-infra-mongo/-/bl-boilerplate-infra-mongo-0.0.2.tgz#3aea93d2b32e6220e62b6b8f9e6c116f736065c6"

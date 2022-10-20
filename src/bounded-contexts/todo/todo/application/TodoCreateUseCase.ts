@@ -2,9 +2,8 @@ import { Application, Either, fail, ok } from '@bitloops/bl-boilerplate-core';
 
 import { TodoCreateRequestDTO } from '../dtos/TodoCreateRequestDTO';
 import { Todo } from '../domain/Todo';
-import { Title } from '../domain/Title';
+import { TitleVO } from '../domain/Title';
 import { DomainErrors } from '../domain/DomainErrors';
-// import { ITodoRepo } from '../repos/ITodoRepo';
 import { TodoId } from '../domain/TodoId';
 
 type TodoCreateResponse = Either<void, DomainErrors.InvalidTitleError>;
@@ -19,12 +18,16 @@ export class TodoCreateUseCase
   }
 
   async execute(request: TodoCreateRequestDTO): Promise<TodoCreateResponse> {
-    const titleVO = Title.create({ title: request.title });
+    const titleVO = TitleVO.create({ title: request.title });
     if (titleVO.isFail()) {
-      return fail(new DomainErrors.InvalidTitleError());
+      return fail(titleVO.value);
     }
-    const todo = new Todo({ title: titleVO.value });
-    this.todoRepo.save(todo);
+    const todo = Todo.create({ title: titleVO.value, completed: false });
+    if (todo.isFail()) {
+      return fail(todo.value);
+    }
+
+    this.todoRepo.save(todo.value);
     return ok();
   }
 }
