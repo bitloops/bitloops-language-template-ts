@@ -1,5 +1,5 @@
 import { Fastify } from '@bitloops/bl-boilerplate-infra-rest-fastify';
-import { TodoCreateUseCase } from '../DI';
+import { TodoCreateUseCase } from '../application/TodoCreateUseCase';
 import { TodoCreateRequestDTO } from '../dtos/TodoCreateRequestDTO';
 
 export class TodoCreateController extends Fastify.BaseController {
