@@ -17,25 +17,28 @@
  *
  *  For further information you can contact legal(at)bitloops.com.
  */
-// import { ApolloServer, gql } from 'apollo-server';
 import { GraphQL } from '@bitloops/bl-boilerplate-infra-graphql';
 import { todoGetAllGQLController } from '../../../bounded-contexts/todo/todo/DI';
 
-// Construct a schema, using GraphQL schema language
 const typeDefs = GraphQL.gql`
+  type TodoReadModel {
+    id: String
+    title: String
+    completed: Boolean
+  }  
+
   type TodoGetAllResponse {
-    todos: [String]
+    todos: [TodoReadModel]
   }
 
   type Query {
-    todoGetAllGQL: TodoGetAllResponse
+    todoGetAll: TodoGetAllResponse
   }
 `;
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    todoGetAllGQL: async (_parent: any, args: any, context: any) => {
+    todoGetAll: async (_parent: any, args: any, context: any) => {
       const result = await todoGetAllGQLController.execute({ args: args.input, context });
       return result;
     },

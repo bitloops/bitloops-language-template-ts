@@ -37,11 +37,13 @@ const todoCreateController = new TodoCreateController(
 );
 const todoUpdateController = new TodoUpdateController();
 const todoDeleteController = new TodoDeleteController();
-const todoGetAllGQLController = new TodoGetAllGQLController();
 const todoGetAllController = new TodoGetAllController(
   new TodoGetAllUseCase(new MongoTodoReadRepo(client)),
 );
 const todoGetByIdController = new TodoGetByIdController();
+const todoGetAllGQLController = new TodoGetAllGQLController(
+  new TodoGetAllUseCase(new MongoTodoReadRepo(client)),
+);
 
 export {
   todoCreateController,
