@@ -11,9 +11,9 @@ type TodoCreateResponse = Either<void, DomainErrors.InvalidTitleError>;
 export class TodoCreateUseCase
   implements Application.IUseCase<TodoCreateRequestDTO, Promise<TodoCreateResponse>>
 {
-  private todoRepo: Application.Repo.ICRUDPort<Todo, TodoId>;
+  private todoRepo: Application.Repo.ICRUDWritePort<Todo, TodoId>;
 
-  constructor(todoRepo: Application.Repo.ICRUDPort<Todo, TodoId>) {
+  constructor(todoRepo: Application.Repo.ICRUDWritePort<Todo, TodoId>) {
     this.todoRepo = todoRepo;
   }
 
@@ -27,7 +27,7 @@ export class TodoCreateUseCase
       return fail(todo.value);
     }
 
-    this.todoRepo.save(todo.value);
+    await this.todoRepo.save(todo.value);
     return ok();
   }
 }

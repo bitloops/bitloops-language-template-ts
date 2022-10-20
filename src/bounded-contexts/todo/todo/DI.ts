@@ -18,11 +18,11 @@
  *  For further information you can contact legal(at)bitloops.com.
  */
 // import { MockTodoRepo } from './repos/concretions/MockTodoRepo';
-import { MongoTodoRepo } from './repos/concretions/MongoTodoRepo';
+import { MongoTodoWriteRepo } from './repos/concretions/MongoToDoWriteRepo';
+import { MongoTodoReadRepo } from './repos/concretions/MongoToDoReadRepo';
 
 import { TodoCreateUseCase } from './application/TodoCreateUseCase';
-
-export { TodoCreateUseCase };
+import { TodoGetAllUseCase } from './application/TodoGetAllUseCase';
 
 import { TodoCreateController } from './driving-adapters/TodoCreateController';
 import { TodoUpdateController } from './driving-adapters/TodoUpdateController';
@@ -33,12 +33,14 @@ import { TodoGetAllGQLController } from './driving-adapters/TodoGetAllGQLControl
 import client from '../../../shared/infra/db/mongo';
 
 const todoCreateController = new TodoCreateController(
-  new TodoCreateUseCase(new MongoTodoRepo(client)),
+  new TodoCreateUseCase(new MongoTodoWriteRepo(client)),
 );
 const todoUpdateController = new TodoUpdateController();
 const todoDeleteController = new TodoDeleteController();
-const todoGetAllController = new TodoGetAllController();
 const todoGetAllGQLController = new TodoGetAllGQLController();
+const todoGetAllController = new TodoGetAllController(
+  new TodoGetAllUseCase(new MongoTodoReadRepo(client)),
+);
 const todoGetByIdController = new TodoGetByIdController();
 
 export {
