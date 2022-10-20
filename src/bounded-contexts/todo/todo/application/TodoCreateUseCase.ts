@@ -6,7 +6,7 @@ import { TitleVO } from '../domain/Title';
 import { DomainErrors } from '../domain/DomainErrors';
 import { TodoId } from '../domain/TodoId';
 
-type TodoCreateResponse = Either<void, DomainErrors.InvalidTitleError>;
+type TodoCreateResponse = Either<void, DomainErrors.TitleOutOfBoundsError>;
 
 export class TodoCreateUseCase
   implements Application.IUseCase<TodoCreateRequestDTO, Promise<TodoCreateResponse>>

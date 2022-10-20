@@ -1,6 +1,5 @@
-import { Application, Domain } from '@bitloops/bl-boilerplate-core';
+import { Application } from '@bitloops/bl-boilerplate-core';
 import { Mongo } from '@bitloops/bl-boilerplate-infra-mongo';
-import { TitleVO } from '../../domain/Title';
 import { Todo } from '../../domain/Todo';
 import { TodoId } from '../../domain/TodoId';
 
@@ -23,7 +22,6 @@ export class MongoTodoWriteRepo implements Application.Repo.ICRUDWritePort<Todo,
   }
 
   async delete(todoId: TodoId): Promise<void> {
-    console.log('Deleting todo', todoId);
     await this.collection.deleteOne({
       _id: todoId.id.toString(),
     });

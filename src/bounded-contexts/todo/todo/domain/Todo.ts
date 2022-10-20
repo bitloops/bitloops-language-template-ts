@@ -2,7 +2,7 @@ import { Domain, Either, ok, fail } from '@bitloops/bl-boilerplate-core';
 import { TitleVO } from './Title';
 import { DomainErrors } from './DomainErrors';
 
-export type UpdateTitleResult = Either<void, DomainErrors.InvalidTitleError>;
+export type UpdateTitleResult = Either<void, DomainErrors.TitleOutOfBoundsError>;
 
 export interface TodoProps {
   id?: Domain.UUIDv4;

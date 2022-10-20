@@ -1,19 +1,14 @@
-// import { ITodoRepo } from '../ITodoRepo';
 import { Application } from '@bitloops/bl-boilerplate-core';
+import { TitleVO } from '../../domain/Title';
 import { Todo } from '../../domain/Todo';
 import { TodoId } from '../../domain/TodoId';
 
-export class MockTodoRepo implements Application.Repo.ICRUDPort<Todo, TodoId> {
-  async exists(todoId: TodoId): Promise<boolean> {
-    throw new Error('Method not implemented.');
-  }
-
-  async getAll(): Promise<Todo[]> {
-    throw new Error('Method not implemented.');
-  }
-
+export class MockTodoWriteRepo implements Application.Repo.ICRUDWritePort<Todo, TodoId> {
   async getById(todoId: TodoId): Promise<Todo> {
-    throw new Error('Method not implemented.');
+    return Todo.create({
+      title: TitleVO.create({ title: 'mockTitle' }).value as TitleVO,
+      completed: false,
+    }).value;
   }
 
   async delete(todoId: TodoId): Promise<void> {
